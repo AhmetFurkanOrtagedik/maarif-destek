@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maarif Modeli Destek Aracı</title>
+    <meta name="description" content="Lise matematik öğretmenleri için Maarif Modeli'ne uygun içerik üretim ve müfredat karşılaştırma aracı.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="highlight-yellow">M</span>aarif<span class="highlight-lilac">Destek</span>
+            </div>
+            <h1>Lise Matematik Öğretmenleri İçin Akıllı Asistan</h1>
+            <p>Sınıf ve temayı seçin, Maarif Modeline uygun içerik tavsiyelerini hemen görün.</p>
+        </header>
+
+        <!-- Controls (Selection Area) -->
+        <section class="controls-card glass-panel">
+            <div class="form-group">
+                <label for="grade-select">Sınıf Düzeyi</label>
+                <select id="grade-select" class="custom-select">
+                    <option value="9" selected>9. Sınıf</option>
+                    <option value="10">10. Sınıf</option>
+                    <option value="11">11. Sınıf</option>
+                    <option value="12">12. Sınıf</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="theme-select">Maarif Modeli Teması</label>
+                <select id="theme-select" class="custom-select">
+                    {% for theme in default_themes %}
+                    <option value="{{ theme }}">{{ theme }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button id="analyze-btn" class="primary-btn">
+                <span class="btn-text">Analiz Et</span>
+                <span class="loader hidden"></span>
+            </button>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="results-container hidden">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-target="etkinlik">Etkinlik Tavsiyesi</button>
+                <button class="tab-btn" data-target="baglam_temelli_soru">Bağlam Temelli Soru</button>
+                <button class="tab-btn" data-target="karsilastirmali_analiz">Karşılaştırmalı Analiz</button>
+                <button class="tab-btn" data-target="ders_plani">Örnek Ders Planı</button>
+            </div>
+
+            <div class="tabs-content glass-panel">
+                <!-- Etkinlik Sekmesi -->
+                <div id="etkinlik" class="tab-pane active fade-in">
+                    <h3 class="pane-title text-turquoise">Maarif Modeli'ne Uygun Etkinlik Önerisi</h3>
+                    <p id="etkinlik-text" class="content-text whitespace-pre">Veri bekleniyor...</p>
+                </div>
+
+                <!-- Bağlam Temelli Soru Sekmesi -->
+                <div id="baglam_temelli_soru" class="tab-pane fade-in">
+                    <h3 class="pane-title text-yellow">Beceri Temelli Kavramsal Soru</h3>
+                    <div class="question-box">
+                        <p id="baglam_temelli_soru-text" class="content-text whitespace-pre">Veri bekleniyor...</p>
+                    </div>
+                </div>
+
+                <!-- Karşılaştırmalı Analiz Sekmesi -->
+                <div id="karsilastirmali_analiz" class="tab-pane fade-in">
+                    <h3 class="pane-title text-lilac">2018 Müfredatı ile Karşılaştırmalı Analiz</h3>
+                    <div class="diff-box">
+                        <div class="diff-icon">💡</div>
+                        <p id="karsilastirmali_analiz-text" class="content-text whitespace-pre">Veri bekleniyor...</p>
+                    </div>
+                </div>
+
+                <!-- Ders Planı Sekmesi -->
+                <div id="ders_plani" class="tab-pane fade-in">
+                    <h3 class="pane-title text-turquoise">Merak-Keşfet-Açıkla-Derinleştir-Değerlendir Ders Planı</h3>
+                    <div class="plan-box">
+                        <p id="ders_plani-text" class="content-text whitespace-pre">Veri bekleniyor...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
