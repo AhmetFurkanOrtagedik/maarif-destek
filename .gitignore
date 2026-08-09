@@ -1,0 +1,23 @@
+# Ortam değişkenleri (API anahtarları, gizli bilgiler)
+.env
+
+# Python derleme dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Sanal ortam
+venv/
+.venv/
+env/
+
+# IDE dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# İşletim sistemi dosyaları
+Thumbs.db
+.DS_Store
