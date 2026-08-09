@@ -1,0 +1,6 @@
+Flask
+Werkzeug
+pypdf
+requests
+python-dotenv
+gunicorn
